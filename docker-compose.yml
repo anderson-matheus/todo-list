@@ -1,15 +1,44 @@
-version: "4"
+version: "3.8"
 
 services:
+  postgres:
+    image: postgres:11
+    container_name: todo_list_postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: db
+    volumes:
+      - data:/data/db
+
   frontend:
     build: ./frontend
     container_name: todo_list_frontend
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - postgres
+      - api
     ports:
       - '3000:3000'
-  backend:
+
+  api:
     build: ./backend
     container_name: todo_list_backend
+    volumes:
+      - ./backend/src:/usr/src/app/src
+      - ./backend/package.json:/usr/src/app/package.json
+      - ./backend/package-lock.json:/usr/src/app/package-lock.json
+      - ./backend/.jest.config.js:/usr/src/app/.jest.config.js
     ports:
       - '4000:4000'
+    depends_on:
+      - postgres
     stdin_open: true
     tty: true
+
+volumes: 
+  data: {}
+  # backend:
