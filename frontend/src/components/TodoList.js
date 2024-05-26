@@ -170,7 +170,7 @@ const TodoList = ({ todos, onDelete, onUpdate }) => {
                   todo.title,
                   todo.description,
                   todo.priority,
-                  '2024-10-10',
+                  todo.completedDate,
                   todo.completed,
                 )}>Edit</button>
                 <button className='delete' onClick={() => onDelete(todo.id)}>Delete</button>
