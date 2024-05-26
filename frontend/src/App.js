@@ -30,6 +30,7 @@ function App() {
     try {
       setLoading(true);
       await axios.post(`${process.env.REACT_APP_API_URL}/todos`, data);
+      toast.success('Added with success');
       handleFetchTodos();
       setLoading(false);
     } catch (error) {
@@ -42,6 +43,7 @@ function App() {
     try {
       setLoading(true);
       await axios.delete(`${process.env.REACT_APP_API_URL}/todos/${id}`);
+      toast.success(`Deleted todo id #${id} with success`);
       handleFetchTodos();
       setLoading(false);
     } catch (error) {
@@ -54,6 +56,7 @@ function App() {
     try {
       setLoading(true);
       await axios.put(`${process.env.REACT_APP_API_URL}/todos/${id}`, data);
+      toast.success(`Updated todo id #${id} with success`);
       handleFetchTodos();
       setLoading(false);
     } catch (error) {
@@ -64,13 +67,14 @@ function App() {
 
   return (
     <div>
-      <ToastContainer />
       <H1>Todo List</H1>
       <TodoForm onFetchTodos={handleFetchTodos} onAdd={handleAddTodo} />
       {loading ? <H1>Loading...</H1> : <></>}
       {todos.length === 0 ? <H1>No results</H1> : (
         <TodoList todos={todos} onDelete={handleDeleteTodo} onUpdate={handleUpdateTodo} />
-      )}      
+      )}
+      
+      <ToastContainer />     
     </div>
   );
 }

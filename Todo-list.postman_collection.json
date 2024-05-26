@@ -13,13 +13,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/apitodos",
+					"raw": "http://localhost/api/todos",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "4000",
 					"path": [
+						"api",
 						"todos"
 					]
 				}
@@ -33,7 +33,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"text\": \"test\",\n    \"completed\": false\n}",
+					"raw": "{\n    \"title\": \"test\",\n    \"description\": \"description\",\n    \"priority\": \"LOW\",\n    \"completed\": false,\n    \"completedDate\": \"2024-05-26\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -41,13 +41,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost/apitodos",
+					"raw": "http://localhost/api/todos",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "4000",
 					"path": [
+						"api",
 						"todos"
 					]
 				}
@@ -61,7 +61,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"text\": \"test update\",\n    \"completed\": false\n}",
+					"raw": "{\n    \"title\": \"update test\",\n    \"description\": \"update description\",\n    \"priority\": \"HIGHT\",\n    \"completed\": true,\n    \"completedDate\": \"2024-05-27\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -69,13 +69,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost/apitodos/1",
+					"raw": "http://localhost/api/todos/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "4000",
 					"path": [
+						"api",
 						"todos",
 						"1"
 					]
@@ -89,13 +89,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/apitodos/1",
+					"raw": "http://localhost/api/todos/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "4000",
 					"path": [
+						"api",
 						"todos",
 						"1"
 					]

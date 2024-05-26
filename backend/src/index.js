@@ -12,9 +12,13 @@ app.use(express.json());
 const todoRepository = new TodoRepository();
 
 app.post('/todos', validateCreateTodo, async (req, res) => {
-  const { text, completed } = req.body;
+  const {
+    title, description, completed, completedDate, priority
+  } = req.body;
   try {
-    const todo = await todoRepository.createTodo(text, completed);
+    const todo = await todoRepository.createTodo(
+      title, description, priority, completedDate, completed
+    );
     res.json(todo);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -26,17 +30,17 @@ app.get('/todos', async (_req, res) => {
     const todos = await todoRepository.getAllTodos();
     res.json(todos);
   } catch (error) {
-
-    console.log(error)
     res.status(500).json({ error: error.message });
   }
 });
 
 app.put('/todos/:id', validateUpdateTodo, async (req, res) => {
   const { id } = req.params;
-  const { text, completed } = req.body;
+  const { title, description, priority, completedDate, completed } = req.body;
   try {
-    const todo = await todoRepository.updateTodo(id, text, completed);
+    const todo = await todoRepository.updateTodo(
+      id, title, description, priority, completedDate, completed
+    );
     res.json(todo);
   } catch (error) {
     res.status(500).json({ error: error.message });

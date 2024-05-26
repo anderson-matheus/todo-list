@@ -1,10 +1,29 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
+  font-family: sans-serif;
   display: flex;
   flex-direction: column;
   width: 90%;
   margin: 0 5% 20px 5%;
+`;
+
+export const Grid2fr = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+`;
+
+export const P = styled.p`
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-family: sans-serif;
+`;
+
+export const HR = styled.hr`
+  border: 1px solid #ccc;
+  width: 100%;
+  margin-bottom: 20px;
 `;
 
 export const Input = styled.input`
@@ -15,7 +34,6 @@ export const Input = styled.input`
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
-  min-height: 50px;
   box-shadow: 10px 5px 5px #ccc;
 
 `;
@@ -37,7 +55,7 @@ export const SubmitButton = styled.button`
   background-color: #04AA6D;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -51,3 +69,14 @@ export const SubmitButton = styled.button`
     box-shadow: 10px 5px 5px #ccc;
   }
 `;
+
+export const Radio = styled.input`
+  margin-bottom: 20px;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+`

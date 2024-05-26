@@ -8,7 +8,16 @@ datasource db {
 }
 
 model Todo {
-  id        Int     @id @default(autoincrement())
-  text      String
-  completed Boolean
+  id            Int       @id @default(autoincrement())
+  title         String
+  description   String
+  completed     Boolean?
+  priority      Priority
+  completedDate DateTime? @db.Date
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGHT
 }

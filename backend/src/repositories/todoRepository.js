@@ -3,12 +3,15 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 class TodoRepository {
-  async createTodo(text, completed) {
+  async createTodo(title, description, priority, completedDate, completed) {
     try {
       const todo = await prisma.todo.create({
         data: {
-          text,
+          title,
+          description,
           completed,
+          priority,
+          completedDate: completedDate ? new Date(completedDate) : null,
         },
       });
       return todo;
@@ -19,21 +22,25 @@ class TodoRepository {
 
   async getAllTodos() {
     try {
-      const todos = await prisma.todo.findMany();
+      const todos = await prisma.todo.findMany({orderBy: {
+        id: "desc",
+      }});
       return todos;
     } catch (error) {
-      console.log(error)
       throw new Error('Unable to fetch todos');
     }
   }
 
-  async updateTodo(id, text, completed) {
+  async updateTodo(id, title, description, priority, completedDate, completed) {
     try {
       const todo = await prisma.todo.update({
         where: { id: parseInt(id) },
         data: {
-          text,
-          completed,
+          title,
+          description,
+          priority,
+          completedDate: completedDate ? new Date(completedDate) : null,
+          completed
         },
       });
       return todo;
