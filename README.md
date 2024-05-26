@@ -45,7 +45,7 @@ docker exec -it todo_list_frontend npm test
 
 # Url's
 ### Backend
-[http://localhost:4000](http://localhost:4000)
+[http://localhost/api](http://localhost/api)
 
 ### Frontend
-[http://localhost:3000](http://localhost:3000)
+[http://localhost](http://localhost)
