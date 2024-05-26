@@ -26,6 +26,8 @@ app.get('/todos', async (_req, res) => {
     const todos = await todoRepository.getAllTodos();
     res.json(todos);
   } catch (error) {
+
+    console.log(error)
     res.status(500).json({ error: error.message });
   }
 });

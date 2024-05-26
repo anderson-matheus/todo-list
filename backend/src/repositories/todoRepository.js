@@ -22,6 +22,7 @@ class TodoRepository {
       const todos = await prisma.todo.findMany();
       return todos;
     } catch (error) {
+      console.log(error)
       throw new Error('Unable to fetch todos');
     }
   }
