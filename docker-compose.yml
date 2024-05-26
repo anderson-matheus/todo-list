@@ -32,7 +32,7 @@ services:
     build: ./frontend
     container_name: todo_list_frontend
     volumes:
-      - ./frontend:/app
+      - ./frontend/src:/usr/src/app/src
     depends_on:
       - postgres
       - api
