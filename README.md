@@ -7,6 +7,9 @@
 ## Install
 
 ```
+git clone git@github.com:anderson-matheus/todo-list.git
+cd todo-list
+
 cp .env.example .env
 
 cd backend
